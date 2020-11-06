@@ -2,3 +2,4 @@
 Repo du groupe 8 UEDW15 2020
 
 Killian DOUBRE
+Maxence BUREAU
