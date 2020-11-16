@@ -4,11 +4,23 @@ namespace App;
 
 class CarModel
 {
+    private $idCar;
     private $marque;
     private $modele;
     private $couleur;
     private $typeMoteur;
     private $author;
+
+    // GET et SET de id ($idCar)
+    public function getIdCar(): string
+    {
+        return $this->idCar;
+    }
+    public function setIdCar(string $idCar): self
+    {
+        $this->idCar = $idCar;
+        return $this;
+    }
 
     // GET et SET de marque ($marque)
     public function getMarque(): string

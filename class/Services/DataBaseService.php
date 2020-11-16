@@ -273,3 +273,156 @@ class DataBaseService
         return $isOk;
     }
 }
+
+    /**
+     * Create an Car.
+     */
+    public function createCar(string $idCar, string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'idCar' => $idCar,
+            'marque' => $marque,
+            'modele' => $modele,
+            'typeMoteur' => $typeMoteur,
+            'couleur' => $couleur,
+            'author' => $author,
+        ];
+        $sql = 'INSERT INTO Cars (idCar, marque, modele, typeMoteur, couleur, author) VALUES (:idCar, :marque, :modele, :typeMoteur, :couleur, :author)';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Return all Cars.
+     */
+    public function getCars(): array
+    {
+        $cars = [];
+
+        $sql = 'SELECT * FROM Cars';
+        $query = $this->connection->query($sql);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($results)) {
+            $cars = $results;
+        }
+
+        return $cars;
+    }
+
+    /**
+     * Update an Car.
+     */
+    public function updateCar(string $idCar, string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'idCar' => $idCar,
+            'marque' => $marque,
+            'modele' => $modele,
+            'typeMoteur' => $typeMoteur,
+            'couleur' => $couleur,
+            'author' => $author,
+        ];
+        $sql = 'UPDATE Cars SET idCar = :idCar, marque = :marque, modele = :modele, typeMoteur = :typeMoteur, couleur = :couleur, author = :author WHERE idCar = :idCar;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Delete an Car.
+     */
+    public function deleteCar(string $idCar): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'idCar' => $idCar,
+        ];
+        $sql = 'DELETE FROM Cars WHERE idCar = :idCar;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Create an Reservation.
+     */
+    public function createReservation(string $id, string $idProprietaire, string $idCovoitureur, string $idAnnonce): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+            'idProprietaire' => $idProprietaire,
+            'idCovoitureur' => $idCovoitureur,
+            'idAnnonce' => $idAnnonce,
+        ];
+        $sql = 'INSERT INTO Reservations (id, idProprietaire, idCovoitureur, idAnnonce) VALUES (:id, :idProprietaire, :idCovoitureur, :idAnnonce)';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Return all Reservations.
+     */
+    public function getReservations(): array
+    {
+        $reservations = [];
+
+        $sql = 'SELECT * FROM Reservations';
+        $query = $this->connection->query($sql);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($results)) {
+            $reservations = $results;
+        }
+
+        return $reservations;
+    }
+
+    /**
+     * Update an Reservation.
+     */
+    public function updateReservation(string $id, string $idProprietaire, string $idCovoitureur, string $idAnnonce): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+            'idProprietaire' => $idProprietaire,
+            'idCovoitureur' => $idCovoitureur,
+            'idAnnonce' => $idAnnonce,
+        ];
+        $sql = 'UPDATE Reservations SET id = :id, idProprietaire = :idProprietaire, idCovoitureur = :idCovoitureur, idAnnonce = :idAnnonce WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Delete an Car.
+     */
+    public function deleteReservation(string $id): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+        ];
+        $sql = 'DELETE FROM Reservations WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+}

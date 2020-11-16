@@ -3,11 +3,12 @@
 namespace App\Entities;
 
 
-class AddReservation
+class AdReservation
 {
     private $id;
     private $idProprietaire;
     private $idCovoitureur;
+    private $idAnnonce;
 
     public function getId(): string
     {
@@ -37,5 +38,15 @@ class AddReservation
     public function setIdCovoitureur(string $idCovoitureur): void
     {
         $this->idCovoitureur = $idCovoitureur;
+    }    
+    
+    public function getIdAnnonce(): string
+    {
+        return $this->idAnnonce;
+    }
+
+    public function setIdAnnonce(string $idAnnonce): void
+    {
+        $this->idAnnonce = $idAnnonce;
     }
 }

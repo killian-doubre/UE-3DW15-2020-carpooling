@@ -4,6 +4,19 @@ namespace App;
 
 class CarService
 {
+    public function setCar(?string $idCar, string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
+    {
+        $isOk = false;
+
+        $dataBaseService = new DataBaseService();
+        if (empty($idCar)) {
+            $isOk = $dataBaseService->createCar($idCar, $marque, $modele, $typeMoteur, $couleur, $author);
+        } else {
+            $isOk = $dataBaseService->updateCar($idCar, $marque, $modele, $typeMoteur, $couleur, $author);
+        }
+
+        return $isOk;
+    }
 
     public function getCars(): array
     {
@@ -16,6 +29,9 @@ class CarService
         // Get objects from array :
         foreach ($carsDTO as $carDTO) {
             $car = new CarModel();
+            if (!empty($carDTO['id'])) {
+                $car->setId($carDTO['id']);
+            }
             if (!empty($carDTO['marque'])) {
                 $car->setMarque($carDTO['marque']);
             }
