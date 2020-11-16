@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use DateTime;
 
-class Add
+class Ad
 {
     private $id;
     private $title;
@@ -13,7 +13,7 @@ class Add
     private $price;
     private $start;
     private $destination;
-    private $date;
+    private $departureDate;
 
     public function getId(): string
     {
@@ -87,11 +87,11 @@ class Add
 
     public function getDate(): DateTime
     {
-        return $this->date;
+        return $this->departureDate;
     }
 
-    public function setDate(DateTime $date): void
+    public function setDate(DateTime $departureDate): void
     {
-        $this->date = $date;
+        $this->departureDate = $departureDate;
     }
 }

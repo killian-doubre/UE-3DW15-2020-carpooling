@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use DateTime;
 
-class AddComment
+class AdComment
 {
     private $id;
     private $idAnnonce;

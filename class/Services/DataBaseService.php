@@ -104,4 +104,172 @@ class DataBaseService
 
         return $isOk;
     }
+
+
+
+
+
+    /**
+     * Create an Ad.
+     */
+    public function createAd(string $title, string $description, string $car, int $price, string $start, string $destination,
+    DateTime $departureDate): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'title' => $title,
+            'description' => $description,
+            'car' => $car,
+            'price' => $price,
+            'start' => $start,
+            'destination' => $destination,
+            'departureDate' => $departureDate->format(DateTime::RFC3339),
+        ];
+        $sql = 'INSERT INTO ads (title, description, car, price, start, destination, departureDate) VALUES (:title, :description, :car, :price
+        , :start, :destination, :departureDate)';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Return all Ads.
+     */
+    public function getAds(): array
+    {
+        $ads = [];
+
+        $sql = 'SELECT * FROM ads';
+        $query = $this->connection->query($sql);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($results)) {
+            $ads = $results;
+        }
+
+        return $ads;
+    }
+
+    /**
+     * Update an Ad.
+     */
+    public function updateAd(string $id, string $title, string $description, string $car, int $price, string $start, string $destination,
+    DateTime $departureDate): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+            'title' => $title,
+            'description' => $description,
+            'car' => $car,
+            'price' => $price,
+            'start' => $start,
+            'destination' => $destination,
+            'departureDate' => $departureDate->format(DateTime::RFC3339),
+        ];
+        $sql = 'UPDATE users SET id = :id, title = :title, description = :description, car = :car, price = :price, start = :start,
+        destination = :destination, departureDate = :departureDate WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Delete an Ad.
+     */
+    public function deleteAd(string $id): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+        ];
+        $sql = 'DELETE FROM ads WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+
+
+
+
+    /**
+     * Create an AdComment.
+     */
+    public function createAdComment(string $idAnnonce, string $author, string $comment, DateTime $date): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'idannonce' => $idAnnonce,
+            'author' => $author,
+            'comment' => $comment,
+            'date' => $date->format(DateTime::RFC3339),
+        ];
+        $sql = 'INSERT INTO adComments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Return all Ads.
+     */
+    public function getAdComments(): array
+    {
+        $adComments = [];
+
+        $sql = 'SELECT * FROM adComments';
+        $query = $this->connection->query($sql);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($results)) {
+            $adComments = $results;
+        }
+
+        return $adComments;
+    }
+
+    /**
+     * Update an Ad.
+     */
+    public function updateAdComment(string $id, string $idAnnonce, string $author, string $comment, DateTime $date): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+            'idannonce' => $idAnnonce,
+            'author' => $author,
+            'comment' => $comment,
+            'date' => $date->format(DateTime::RFC3339),
+        ];
+        $sql = 'UPDATE adComments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Delete an Ad.
+     */
+    public function deleteAdComment(string $id): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+        ];
+        $sql = 'DELETE FROM adComments WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
 }
