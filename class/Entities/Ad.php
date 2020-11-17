@@ -7,6 +7,7 @@ use DateTime;
 class Ad
 {
     private $id;
+    private $idauthor;
     private $title;
     private $description;
     private $car;
@@ -23,6 +24,16 @@ class Ad
     public function setId(string $id): void
     {
         $this->id = $id;
+    }
+
+    public function getIdAuthor(): string
+    {
+        return $this->idauthor;
+    }
+
+    public function setIdAuthor(string $idauthor): void
+    {
+        $this->idauthor = $idauthor;
     }
 
     public function getTitle(): string

@@ -14,7 +14,8 @@ class AdsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['title']) &&
+        if (isset($_POST['idauthor']) &&
+            isset($_POST['title']) &&
             isset($_POST['description']) &&
             isset($_POST['car']) &&
             isset($_POST['price']) &&
@@ -25,6 +26,7 @@ class AdsController
             $adsService = new AdsService();
             $isOk = $adsService->setAd(
                 null,
+                $_POST['idauthor'],
                 $_POST['title'],
                 $_POST['description'],
                 $_POST['car'],
@@ -58,6 +60,7 @@ class AdsController
         foreach ($ads as $ad) {
             $html .=
                 '#' . $ad->getId() . ' ' .
+                $ad->getIdAuthor() . ' ' .
                 $ad->getTitle() . ' ' .
                 $ad->getDescription() . ' ' .
                 $ad->getCar() . ' ' .
@@ -79,6 +82,7 @@ class AdsController
 
         // If the form have been submitted :
         if (isset($_POST['id']) &&
+            isset($_POST['idauthor']) &&
             isset($_POST['title']) &&
             isset($_POST['description']) &&
             isset($_POST['car']) &&
@@ -90,6 +94,7 @@ class AdsController
             $adsService = new AdsService();
             $isOk = $adsService->setAd(
                 $_POST['id'],
+                $_POST['idauthor'],
                 $_POST['title'],
                 $_POST['description'],
                 $_POST['car'],

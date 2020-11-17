@@ -112,12 +112,13 @@ class DataBaseService
     /**
      * Create an Ad.
      */
-    public function createAd(string $title, string $description, string $car, int $price, string $start, string $destination,
+    public function createAd(string $idauthor, string $title, string $description, string $car, int $price, string $start, string $destination,
     DateTime $departureDate): bool
     {
         $isOk = false;
 
         $data = [
+            'idauthor' => $idauthor,
             'title' => $title,
             'description' => $description,
             'car' => $car,
@@ -126,7 +127,7 @@ class DataBaseService
             'destination' => $destination,
             'departureDate' => $departureDate->format(DateTime::RFC3339),
         ];
-        $sql = 'INSERT INTO ads (title, description, car, price, start, destination, departureDate) VALUES (:title, :description, :car, :price
+        $sql = 'INSERT INTO ads (idauthor, title, description, car, price, start, destination, departureDate) VALUES (:idauthor, :title, :description, :car, :price
         , :start, :destination, :departureDate)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
@@ -154,13 +155,14 @@ class DataBaseService
     /**
      * Update an Ad.
      */
-    public function updateAd(string $id, string $title, string $description, string $car, int $price, string $start, string $destination,
+    public function updateAd(string $id, string $idauthor, string $title, string $description, string $car, int $price, string $start, string $destination,
     DateTime $departureDate): bool
     {
         $isOk = false;
 
         $data = [
             'id' => $id,
+            'idauthor' => $idauthor,
             'title' => $title,
             'description' => $description,
             'car' => $car,
@@ -169,7 +171,7 @@ class DataBaseService
             'destination' => $destination,
             'departureDate' => $departureDate->format(DateTime::RFC3339),
         ];
-        $sql = 'UPDATE users SET id = :id, title = :title, description = :description, car = :car, price = :price, start = :start,
+        $sql = 'UPDATE ads SET id = :id, idauthor = :idauthor, title = :title, description = :description, car = :car, price = :price, start = :start,
         destination = :destination, departureDate = :departureDate WHERE id = :id;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
@@ -211,7 +213,7 @@ class DataBaseService
             'comment' => $comment,
             'date' => $date->format(DateTime::RFC3339),
         ];
-        $sql = 'INSERT INTO adComments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
+        $sql = 'INSERT INTO adcomments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -225,7 +227,7 @@ class DataBaseService
     {
         $adComments = [];
 
-        $sql = 'SELECT * FROM adComments';
+        $sql = 'SELECT * FROM adcomments';
         $query = $this->connection->query($sql);
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         if (!empty($results)) {
@@ -249,7 +251,7 @@ class DataBaseService
             'comment' => $comment,
             'date' => $date->format(DateTime::RFC3339),
         ];
-        $sql = 'UPDATE adComments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
+        $sql = 'UPDATE adcomments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -266,7 +268,7 @@ class DataBaseService
         $data = [
             'id' => $id,
         ];
-        $sql = 'DELETE FROM adComments WHERE id = :id;';
+        $sql = 'DELETE FROM adcomments WHERE id = :id;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 

@@ -10,8 +10,8 @@ echo $controller->updateAd();
 
 <p>Mise à jour de l'annonce</p>
 <form method="post" action="ads_updare.php" name ="adUpdateForm">
-    <label for="id">ID Annonce :</label>
-    <input type="text" name="id">
+    <label for="idannonce">ID Annonce :</label>
+    <input type="text" name="idannonce">
     <br />
     <label for="title">Titre :</label>
     <input type="text" name="title">
