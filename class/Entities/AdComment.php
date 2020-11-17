@@ -12,6 +12,8 @@ class AdComment
     private $comment;
     private $date;
 
+    
+    // GET et SET de id ($id)
     public function getId(): string
     {
         return $this->id;
@@ -22,6 +24,8 @@ class AdComment
         $this->id = $id;
     }
 
+
+    // GET et SET de id ($idAnnonce)
     public function getIdAnnonce(): string
     {
         return $this->idAnnonce;
@@ -32,6 +36,8 @@ class AdComment
         $this->idAnnonce = $idAnnonce;
     }
 
+
+    // GET et SET de id ($author)
     public function getAuthor(): string
     {
         return $this->author;
@@ -41,7 +47,9 @@ class AdComment
     {
         $this->author = $author;
     }
-    
+
+
+    // GET et SET de id ($comment)
     public function getComment(): string
     {
         return $this->comment;
@@ -52,6 +60,8 @@ class AdComment
         $this->comment = $comment;
     }
 
+
+    // GET et SET de id ($date)
     public function getDate(): DateTime
     {
         return $this->date;

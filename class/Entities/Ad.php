@@ -16,6 +16,8 @@ class Ad
     private $destination;
     private $departureDate;
 
+
+    // GET et SET de id ($id)
     public function getId(): string
     {
         return $this->id;
@@ -26,6 +28,8 @@ class Ad
         $this->id = $id;
     }
 
+
+    // GET et SET de id ($idauthor)
     public function getIdAuthor(): string
     {
         return $this->idauthor;
@@ -36,6 +40,8 @@ class Ad
         $this->idauthor = $idauthor;
     }
 
+
+    // GET et SET de id ($title)
     public function getTitle(): string
     {
         return $this->title;
@@ -46,6 +52,8 @@ class Ad
         $this->title = $title;
     }
 
+
+    // GET et SET de id ($description)
     public function getDescription(): string
     {
         return $this->description;
@@ -56,6 +64,8 @@ class Ad
         $this->description = $description;
     }
 
+
+    // GET et SET de id ($car)
     public function getCar(): string
     {
         return $this->car;
@@ -66,6 +76,8 @@ class Ad
         $this->car = $car;
     }
 
+
+    // GET et SET de id ($price)
     public function getPrice(): int
     {
         return $this->price;
@@ -76,6 +88,8 @@ class Ad
         $this->price = $price;
     }
 
+
+    // GET et SET de id ($start)
     public function getStart(): string
     {
         return $this->start;
@@ -86,6 +100,8 @@ class Ad
         $this->start = $start;
     }
 
+
+    // GET et SET de id ($destination)
     public function getDestination(): string
     {
         return $this->destination;
@@ -96,6 +112,8 @@ class Ad
         $this->destination = $destination;
     }
 
+
+    // GET et SET de id ($date)
     public function getDate(): DateTime
     {
         return $this->departureDate;

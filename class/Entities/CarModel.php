@@ -16,10 +16,9 @@ class CarModel
     {
         return $this->idCar;
     }
-    public function setIdCar(string $idCar): self
+    public function setIdCar(string $idCar): void
     {
         $this->idCar = $idCar;
-        return $this;
     }
 
     // GET et SET de marque ($marque)
@@ -27,10 +26,9 @@ class CarModel
     {
         return $this->marque;
     }
-    public function setMarque(string $marque): self
+    public function setMarque(string $marque): void
     {
         $this->marque = $marque;
-        return $this;
     }
 
     // GET et SET de modele ($modele)
@@ -38,10 +36,9 @@ class CarModel
     {
         return $this->modele;
     }
-    public function setModele(string $modele): self
+    public function setModele(string $modele): void
     {
         $this->modele = $modele;
-        return $this;
     }
     
     // GET et SET de couleur ($couleur)
@@ -49,10 +46,9 @@ class CarModel
     {
         return $this->couleur;
     }
-    public function setCouleur(string $couleur): self
+    public function setCouleur(string $couleur): void
     {
         $this->couleur = $couleur;
-        return $this;
     }
 
     // GET et SET du type de moteur ($typeMoteur)
@@ -60,10 +56,9 @@ class CarModel
     {
         return $this->typeMoteur;
     }
-    public function setTypeMoteur(string $typeMoteur): self
+    public function setTypeMoteur(string $typeMoteur): void
     {
         $this->typeMoteur = $typeMoteur;
-        return $this;
     }
 
     // GET et SET de l'id du propriétaire ($author)
@@ -71,9 +66,8 @@ class CarModel
     {
         return $this->author;
     }
-    public function setAuthor(string $author): self
+    public function setAuthor(string $author): void
     {
         $this->author = $author;
-        return $this;
     }
 }

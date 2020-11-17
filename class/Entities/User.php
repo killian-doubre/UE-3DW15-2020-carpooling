@@ -12,6 +12,8 @@ class User
     private $email;
     private $birthday;
 
+
+    // GET et SET de id ($id)
     public function getId(): string
     {
         return $this->id;
@@ -22,6 +24,8 @@ class User
         $this->id = $id;
     }
 
+
+    // GET et SET de id ($firstname)
     public function getFirstname(): string
     {
         return $this->firstname;
@@ -32,6 +36,8 @@ class User
         $this->firstname = $firstname;
     }
 
+
+    // GET et SET de id ($lastname)
     public function getLastname(): string
     {
         return $this->lastname;
@@ -42,6 +48,8 @@ class User
         $this->lastname = $lastname;
     }
 
+
+    // GET et SET de id ($email)
     public function getEmail(): string
     {
         return $this->email;
@@ -52,6 +60,8 @@ class User
         $this->email = $email;
     }
 
+
+    // GET et SET de id ($birthday)
     public function getBirthday(): DateTime
     {
         return $this->birthday;
