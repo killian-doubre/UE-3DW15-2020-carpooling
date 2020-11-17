@@ -285,14 +285,14 @@ class DataBaseService
         $isOk = false;
 
         $data = [
-            'idCar' => $idCar,
+            'idcar' => $idCar,
             'marque' => $marque,
             'modele' => $modele,
-            'typeMoteur' => $typeMoteur,
+            'typemoteur' => $typeMoteur,
             'couleur' => $couleur,
             'author' => $author,
         ];
-        $sql = 'INSERT INTO Cars (idCar, marque, modele, typeMoteur, couleur, author) VALUES (:idCar, :marque, :modele, :typeMoteur, :couleur, :author)';
+        $sql = 'INSERT INTO cars (idcar, marque, modele, typemoteur, couleur, author) VALUES (:idCar, :marque, :modele, :typemoteur, :couleur, :author)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -324,14 +324,14 @@ class DataBaseService
         $isOk = false;
 
         $data = [
-            'idCar' => $idCar,
+            'idcar' => $idCar,
             'marque' => $marque,
             'modele' => $modele,
-            'typeMoteur' => $typeMoteur,
+            'typemoteur' => $typeMoteur,
             'couleur' => $couleur,
             'author' => $author,
         ];
-        $sql = 'UPDATE Cars SET idCar = :idCar, marque = :marque, modele = :modele, typeMoteur = :typeMoteur, couleur = :couleur, author = :author WHERE idCar = :idCar;';
+        $sql = 'UPDATE cars SET idcar = :idcar, marque = :marque, modele = :modele, typemoteur = :typemoteur, couleur = :couleur, author = :author WHERE idCar = :idCar;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -346,9 +346,9 @@ class DataBaseService
         $isOk = false;
 
         $data = [
-            'idCar' => $idCar,
+            'idcar' => $idCar,
         ];
-        $sql = 'DELETE FROM Cars WHERE idCar = :idCar;';
+        $sql = 'DELETE FROM cars WHERE idcar = :idcar;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -364,11 +364,11 @@ class DataBaseService
 
         $data = [
             'id' => $id,
-            'idProprietaire' => $idProprietaire,
-            'idCovoitureur' => $idCovoitureur,
-            'idAnnonce' => $idAnnonce,
+            'idproprietaire' => $idProprietaire,
+            'idcovoitureur' => $idCovoitureur,
+            'idannonce' => $idAnnonce,
         ];
-        $sql = 'INSERT INTO Reservations (id, idProprietaire, idCovoitureur, idAnnonce) VALUES (:id, :idProprietaire, :idCovoitureur, :idAnnonce)';
+        $sql = 'INSERT INTO reservations (id, idproprietaire, idcovoitureur, idannonce) VALUES (:id, :idproprietaire, :idcovoitureur, :idannonce)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -382,7 +382,7 @@ class DataBaseService
     {
         $reservations = [];
 
-        $sql = 'SELECT * FROM Reservations';
+        $sql = 'SELECT * FROM reservations';
         $query = $this->connection->query($sql);
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         if (!empty($results)) {
@@ -401,11 +401,11 @@ class DataBaseService
 
         $data = [
             'id' => $id,
-            'idProprietaire' => $idProprietaire,
-            'idCovoitureur' => $idCovoitureur,
-            'idAnnonce' => $idAnnonce,
+            'idproprietaire' => $idProprietaire,
+            'idcovoitureur' => $idCovoitureur,
+            'idannonce' => $idAnnonce,
         ];
-        $sql = 'UPDATE Reservations SET id = :id, idProprietaire = :idProprietaire, idCovoitureur = :idCovoitureur, idAnnonce = :idAnnonce WHERE id = :id;';
+        $sql = 'UPDATE reservations SET id = :id, idproprietaire = :idproprietaire, idcovoitureur = :idcovoitureur, idannonce = :idannonce WHERE id = :id;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -422,7 +422,7 @@ class DataBaseService
         $data = [
             'id' => $id,
         ];
-        $sql = 'DELETE FROM Reservations WHERE id = :id;';
+        $sql = 'DELETE FROM reservations WHERE id = :id;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 

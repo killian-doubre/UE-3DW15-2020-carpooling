@@ -18,7 +18,7 @@ CREATE TABLE `ads` (
     `destination` varchar(255) NOT NULL,
     `departureDate` datetime NOT NULL,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`car`) REFERENCES car(`car`)
+    FOREIGN KEY (`car`) REFERENCES car(`car`),
     FOREIGN KEY (`idauthor`) REFERENCES users(`idauthor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -30,6 +30,28 @@ CREATE TABLE `adcomments` (
     `date` datetime NOT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY ('idannonce') REFERENCES ads('idannonce')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `reservations` (
+    `id` int AUTO_INCREMENT NOT NULL,
+    `idproprietaire` varchar(255) NOT NULL,
+    `idcovoitureur` varchar(255) NOT NULL,
+    `idannonce` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY ('idproprietaire') REFERENCES users('id'),
+    FOREIGN KEY ('idcovoitureur') REFERENCES users('id'),
+    FOREIGN KEY ('idannonce') REFERENCES ads('idannonce')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `cars` (
+    `idcar` int AUTO_INCREMENT NOT NULL,
+    `marque` varchar(255) NOT NULL,
+    `modele` varchar(255) NOT NULL,
+    `typemoteur` varchar(255) NOT NULL,
+    `couleur` varchar(255) NOT NULL,
+    `author` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY ('author') REFERENCES ads('id')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
