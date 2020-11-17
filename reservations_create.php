@@ -10,6 +10,9 @@ echo $controller->createReservation();
 
 <p>Ajouter une réservation</p>
 <form method="post" action="reservations_create.php" name ="reservationsCreateForm">
+    <label for="id">ID :</label>
+    <input type="text" name="id">
+    <br />
     <label for="idproprietaire">ID propriétaire :</label>
     <input type="text" name="idproprietaire">
     <br />
