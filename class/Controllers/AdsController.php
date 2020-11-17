@@ -9,7 +9,7 @@ class AdsController
     /**
      * Return the html for the create action.
      */
-    public function createUser(): string
+    public function createAd(): string
     {
         $html = '';
 
@@ -46,7 +46,7 @@ class AdsController
     /**
      * Return the html for the read action.
      */
-    public function getUsers(): string
+    public function getAds(): string
     {
         $html = '';
 
@@ -73,7 +73,7 @@ class AdsController
     /**
      * Update the user.
      */
-    public function updateUser(): string
+    public function updateAd(): string
     {
         $html = '';
 
