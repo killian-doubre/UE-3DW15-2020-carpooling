@@ -22,5 +22,5 @@ echo $controller->updateReservations();
     <label for="idannonce">ID annonce :</label>
     <input type="text" name="idannonce">
     <br />
-    <input type="submit" value="Ajouter une réservation">
+    <input type="submit" value="Modifier une réservation">
 </form>

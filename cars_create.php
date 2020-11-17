@@ -10,9 +10,6 @@ echo $controller->createCar();
 
 <p>Ajouter une voiture</p>
 <form method="post" action="cars_create.php" name ="carsCreateForm">
-    <label for="idcar">ID de la voiture :</label>
-    <input type="text" name="idcar">
-    <br />
     <label for="marque">Marque de la voiture :</label>
     <input type="text" name="marque">
     <br />
