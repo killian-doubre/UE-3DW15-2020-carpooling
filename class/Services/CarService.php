@@ -2,8 +2,13 @@
 
 namespace App\Services;
 
+use App\CarModel;
+
 class CarService
 {
+    /**
+     * Create or update a car.
+     */
     public function setCar(?string $idCar, string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
     {
         $isOk = false;
@@ -18,39 +23,42 @@ class CarService
         return $isOk;
     }
 
+    /**
+     * Get all cars.
+     */
     public function getCars(): array
     {
         $cars = [];
 
-        // Get animals from database :
         $databaseService = new DataBaseService();
         $carsDTO = $databaseService->getCars();
 
-        // Get objects from array :
-        foreach ($carsDTO as $carDTO) {
-            $car = new CarModel();
-            if (!empty($carDTO['id'])) {
-                $car->setId($carDTO['id']);
+        if (!empty($carsDTO)) {
+            foreach ($carsDTO as $carDTO) {
+                $car = new CarModel();
+                $car->setIdCar($carsDTO['id']);
+                $car->setMarque($carsDTO['marque']);
+                $car->setModele($carsDTO['modele']);
+                $car->setCouleur($carsDTO['couleur']);
+                $car->setTypeMoteur($carsDTO['typeMoteur']);
+                $car->setAuthor($carsDTO['author']);
+                $cars[] = $car;
             }
-            if (!empty($carDTO['marque'])) {
-                $car->setMarque($carDTO['marque']);
-            }
-            if (!empty($carDTO['modele'])) {
-                $car->setModele($carDTO['modele']);
-            }
-            if (!empty($carDTO['couleur'])) {
-                $car->setCouleur($carDTO['couleur']);
-            }
-            if (!empty($carDTO['typeMoteur'])) {
-                $car->setTypeMoteur($carDTO['typeMoteur']);
-            }
-            if (!empty($carDTO['author'])) {
-                $car->setAuthor($carDTO['author']);
-            }
-            
-            $cars[] = $car;
         }
 
         return $cars;
+    }
+
+    /**
+     * Delete a car.
+     */
+    public function deleteCar(string $id): bool
+    {
+        $isOk = false;
+
+        $dataBaseService = new DataBaseService();
+        $isOk = $dataBaseService->deleteCar($id);
+
+        return $isOk;
     }
 }
