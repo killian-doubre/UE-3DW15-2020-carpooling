@@ -125,7 +125,7 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departuredate' => $departureDate->format('Y-m-d'),
+            'departuredate' => $departureDate->format('Y-m-d H:i'),
         ];
         $sql = 'INSERT INTO ads (idauthor, title, description, car, price, start, destination, departuredate) VALUES (:idauthor, :title, :description, :car, :price
         , :start, :destination, :departuredate)';
@@ -169,7 +169,7 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departureDate' => $departureDate->format('Y-m-d'),
+            'departureDate' => $departureDate->format('Y-m-d H:i'),
         ];
         $sql = 'UPDATE ads SET idannonce = :idannonce, idauthor = :idauthor, title = :title, description = :description, car = :car, price = :price, start = :start,
         destination = :destination, departureDate = :departureDate WHERE idannonce = :idannonce;';
@@ -211,7 +211,7 @@ class DataBaseService
             'idannonce' => $idAnnonce,
             'author' => $author,
             'comment' => $comment,
-            'date' => $date->format('Y-m-d'),
+            'date' => $date->format('Y-m-d H:i:s'),
         ];
         $sql = 'INSERT INTO adcomments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
         $query = $this->connection->prepare($sql);
@@ -249,7 +249,7 @@ class DataBaseService
             'idannonce' => $idAnnonce,
             'author' => $author,
             'comment' => $comment,
-            'date' => $date->format('Y-m-d'),
+            'date' => $date->format('Y-m-d H:i:s'),
         ];
         $sql = 'UPDATE adcomments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
         $query = $this->connection->prepare($sql);

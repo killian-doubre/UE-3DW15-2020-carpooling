@@ -10,12 +10,12 @@ class AdCommentsService
     /**
      * Create or update an Ad Comment.
      */
-    public function setAdComment(?string $id, string $idAnnonce, string $author, string $comment, string $date): bool
+    public function setAdComment(?string $id, string $idAnnonce, string $author, string $comment): bool
     {
         $isOk = false;
 
         $dataBaseService = new DataBaseService();
-        $commentDate = new DateTime($date);
+        $commentDate = new DateTime("now");
         if (empty($id)) {
             $isOk = $dataBaseService->createAdComment($idAnnonce, $author, $comment, $commentDate);
         } else {

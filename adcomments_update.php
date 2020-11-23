@@ -22,8 +22,5 @@ echo $controller->updateAdComment();
     <label for="comment">Commentaire :</label>
     <input type="text" name="comment">
     <br />
-    <label for="date">Date au format au format yyyy-mm-dd :</label>
-    <input type="text" name="date">
-    <br />
     <input type="submit" value="Editer le commentaire">
 </form>

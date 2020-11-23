@@ -70,7 +70,7 @@ class AdsController
                 $ad->getPrice() . ' ' .
                 $ad->getStart() . ' ' .
                 $ad->getDestination() . ' ' .
-                $ad->getDate()->format('Y-m-d') . '<br />';
+                $ad->getDate()->format('Y-m-d H:i') . '<br />';
         }
 
         return $html;

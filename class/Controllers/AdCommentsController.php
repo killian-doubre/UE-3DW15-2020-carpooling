@@ -16,16 +16,14 @@ class AdCommentsController
         // If the form have been submitted :
         if (!empty($_POST['idannonce']) &&
             !empty($_POST['author']) &&
-            !empty($_POST['comment']) &&
-            !empty($_POST['date'])) {
+            !empty($_POST['comment'])) {
             // Create the ad comment :
             $adCommentsService = new AdCommentsService();
             $isOk = $adCommentsService->setAdComment(
                 null,
                 $_POST['idannonce'],
                 $_POST['author'],
-                $_POST['comment'],
-                $_POST['date']
+                $_POST['comment']
             );
             if ($isOk) {
                 $html = 'Votre commentaire a été ajouté avec succès.';
@@ -58,7 +56,7 @@ class AdCommentsController
                 $ad->getIdAnnonce() . ' ' .
                 $ad->getAuthor() . ' ' .
                 $ad->getComment() . ' ' .
-                $ad->getDate()->format('Y-m-d') . '<br />';
+                $ad->getDate()->format('Y-m-d H:i:s') . '<br />';
         }
 
         return $html;
@@ -75,16 +73,14 @@ class AdCommentsController
         if (!empty($_POST['id']) &&
             !empty($_POST['idannonce']) &&
             !empty($_POST['author']) &&
-            !empty($_POST['comment']) &&
-            !empty($_POST['date'])) {
+            !empty($_POST['comment'])) {
             // Update the ad comment :
             $adCommentsService = new AdCommentsService();
             $isOk = $adCommentsService->setAdComment(
                 $_POST['id'],
                 $_POST['idannonce'],
                 $_POST['author'],
-                $_POST['comment'],
-                $_POST['date']
+                $_POST['comment']
             );
             if ($isOk) {
                 $html = 'Le commentaire a été mis à jour avec succès !';
