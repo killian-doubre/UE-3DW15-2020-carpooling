@@ -42,7 +42,7 @@ class UsersController
      */
     public function getUsers(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // Get all users :
         $usersService = new UsersService();
@@ -66,7 +66,7 @@ class UsersController
      */
     public function updateUser(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -98,7 +98,7 @@ class UsersController
      */
     public function deleteUser(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {

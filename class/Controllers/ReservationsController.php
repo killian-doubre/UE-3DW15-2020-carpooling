@@ -11,7 +11,7 @@ class ReservationsController
      */
     public function createReservation(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['idproprietaire']) &&
@@ -40,7 +40,7 @@ class ReservationsController
      */
     public function getReservations(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // Get all reservations :
         $reservationsService = new ReservationService();
@@ -63,7 +63,7 @@ class ReservationsController
      */
     public function updateReservations(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -93,7 +93,7 @@ class ReservationsController
      */
     public function deleteReservation(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {

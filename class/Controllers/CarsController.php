@@ -11,7 +11,7 @@ class CarsController
      */
     public function createCar(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['marque']) &&
@@ -44,7 +44,7 @@ class CarsController
      */
     public function getCars(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // Get all cars :
         $carsService = new CarService();
@@ -70,7 +70,7 @@ class CarsController
      */
     public function updateCar(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['idcar']) &&
@@ -103,7 +103,7 @@ class CarsController
      */
     public function deleteCar(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['idcar'])) {

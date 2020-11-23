@@ -11,7 +11,7 @@ class AdsController
      */
     public function createAd(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['idauthor']) &&
@@ -50,7 +50,7 @@ class AdsController
      */
     public function getAds(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // Get all users :
         $adsService = new AdsService();
@@ -78,7 +78,7 @@ class AdsController
      */
     public function updateAd(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -118,7 +118,7 @@ class AdsController
      */
     public function deleteAd(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {

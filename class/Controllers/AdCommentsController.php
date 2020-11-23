@@ -11,7 +11,7 @@ class AdCommentsController
      */
     public function createAdComment(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['idannonce']) &&
@@ -42,7 +42,7 @@ class AdCommentsController
      */
     public function getAdComments(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // Get all ad comments :
         $adCommentsService = new AdCommentsService();
@@ -66,7 +66,7 @@ class AdCommentsController
      */
     public function updateAdComment(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -98,7 +98,7 @@ class AdCommentsController
      */
     public function deleteAdComment(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs du formulaire';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {
