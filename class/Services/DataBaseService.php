@@ -12,7 +12,7 @@ class DataBaseService
     const PORT = '3306';
     const DATABASE_NAME = 'carpooling';
     const MYSQL_USER = 'root';
-    const MYSQL_PASSWORD = 'password';
+    const MYSQL_PASSWORD = '';
 
     private $connection;
 
@@ -41,7 +41,7 @@ class DataBaseService
             'firstname' => $firstname,
             'lastname' => $lastname,
             'email' => $email,
-            'birthday' => $birthday->format(DateTime::RFC3339),
+            'birthday' => $birthday->format('Y-m-d'),
         ];
         $sql = 'INSERT INTO users (firstname, lastname, email, birthday) VALUES (:firstname, :lastname, :email, :birthday)';
         $query = $this->connection->prepare($sql);
@@ -79,7 +79,7 @@ class DataBaseService
             'firstname' => $firstname,
             'lastname' => $lastname,
             'email' => $email,
-            'birthday' => $birthday->format(DateTime::RFC3339),
+            'birthday' => $birthday->format(Y-m-d),
         ];
         $sql = 'UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, birthday = :birthday WHERE id = :id;';
         $query = $this->connection->prepare($sql);
@@ -125,7 +125,7 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departureDate' => $departureDate->format(DateTime::RFC3339),
+            'departureDate' => $departureDate->format(Y-m-d),
         ];
         $sql = 'INSERT INTO ads (idauthor, title, description, car, price, start, destination, departureDate) VALUES (:idauthor, :title, :description, :car, :price
         , :start, :destination, :departureDate)';
@@ -169,7 +169,7 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departureDate' => $departureDate->format(DateTime::RFC3339),
+            'departureDate' => $departureDate->format(Y-m-d),
         ];
         $sql = 'UPDATE ads SET id = :id, idauthor = :idauthor, title = :title, description = :description, car = :car, price = :price, start = :start,
         destination = :destination, departureDate = :departureDate WHERE id = :id;';
@@ -211,7 +211,7 @@ class DataBaseService
             'idannonce' => $idAnnonce,
             'author' => $author,
             'comment' => $comment,
-            'date' => $date->format(DateTime::RFC3339),
+            'date' => $date->format(Y-m-d),
         ];
         $sql = 'INSERT INTO adcomments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
         $query = $this->connection->prepare($sql);
@@ -249,7 +249,7 @@ class DataBaseService
             'idannonce' => $idAnnonce,
             'author' => $author,
             'comment' => $comment,
-            'date' => $date->format(DateTime::RFC3339),
+            'date' => $date->format(Y-m-d),
         ];
         $sql = 'UPDATE adcomments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
         $query = $this->connection->prepare($sql);

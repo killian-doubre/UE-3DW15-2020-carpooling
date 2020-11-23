@@ -55,7 +55,7 @@ class UsersController
                 $user->getFirstname() . ' ' .
                 $user->getLastname() . ' ' .
                 $user->getEmail() . ' ' .
-                $user->getBirthday()->format('d-m-Y') . '<br />';
+                $user->getBirthday()->format('Y-m-d') . '<br />';
         }
 
         return $html;

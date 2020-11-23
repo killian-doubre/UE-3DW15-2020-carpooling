@@ -55,7 +55,7 @@ class AdCommentsController
                 $ad->getIdAnnonce() . ' ' .
                 $ad->getAuthor() . ' ' .
                 $ad->getComment() . ' ' .
-                $ad->getDate()->format('d-m-Y') . '<br />';
+                $ad->getDate()->format('Y-m-d') . '<br />';
         }
 
         return $html;
