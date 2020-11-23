@@ -15,6 +15,7 @@ class Ad
     private $start;
     private $destination;
     private $departureDate;
+    private $comments;
 
 
     // GET et SET de id ($id)

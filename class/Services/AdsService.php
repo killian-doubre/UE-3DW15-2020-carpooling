@@ -65,19 +65,20 @@ class AdsService
                     if ($date !== false) {
                         $ad->setDate($date);
                     }
-                    $ads[] = $ad;
+                    $comments = [];
                 }
-                if ($adDTO['id'] != null) {
+
+                if ($adDTO['idcom'] != null) {
                     $adComment = new AdComment();
-                    $adComment->setId($adDTO['id']);
-                    $adComment->setIdAnnonce($adDTO['idannonce']);
+                    $adComment->setId($adDTO['idcom']);
+                    $adComment->setIdAnnonce($adDTO['idad']);
                     $adComment->setAuthor($adDTO['author']);
                     $adComment->setComment($adDTO['comment']);
                     $date = new DateTime($adDTO['date']);
                     if ($date !== false) {
                         $adComment->setDate($date);
                     }
-                    $adComments[] = $adComment;
+                    $comments[] = $adComment;
                 }
                 $loop += 1;
             }

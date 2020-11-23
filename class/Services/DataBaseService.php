@@ -142,7 +142,7 @@ class DataBaseService
     {
         $ads = [];
 
-        $sql = 'SELECT * FROM ads';
+        $sql = 'SELECT * FROM ads LEFT JOIN adcomments ON ads.idannonce = adcomments.idad UNION SELECT * FROM ads RIGHT JOIN adcomments ON ads.idannonce = adcomments.idad ORDER BY idannonce asc';
         $query = $this->connection->query($sql);
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         if (!empty($results)) {
@@ -200,17 +200,17 @@ class DataBaseService
     /**
      * Create an AdComment.
      */
-    public function createAdComment(string $idAnnonce, string $author, string $comment, DateTime $date): bool
+    public function createAdComment(string $idad, string $author, string $comment, DateTime $date): bool
     {
         $isOk = false;
 
         $data = [
-            'idannonce' => $idAnnonce,
+            'idad' => $idad,
             'author' => $author,
             'comment' => $comment,
             'date' => $date->format('Y-m-d H:i:s'),
         ];
-        $sql = 'INSERT INTO adcomments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
+        $sql = 'INSERT INTO adcomments (idad, author, comment, date) VALUES (:idad, :author, :comment, :date)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -218,37 +218,20 @@ class DataBaseService
     }
 
     /**
-     * Return all Ads.
-     */
-    public function getAdComments(): array
-    {
-        $adComments = [];
-
-        $sql = 'SELECT * FROM adcomments';
-        $query = $this->connection->query($sql);
-        $results = $query->fetchAll(PDO::FETCH_ASSOC);
-        if (!empty($results)) {
-            $adComments = $results;
-        }
-
-        return $adComments;
-    }
-
-    /**
      * Update an Ad.
      */
-    public function updateAdComment(string $id, string $idAnnonce, string $author, string $comment, DateTime $date): bool
+    public function updateAdComment(string $idcom, string $idad, string $author, string $comment, DateTime $date): bool
     {
         $isOk = false;
 
         $data = [
-            'id' => $id,
-            'idannonce' => $idAnnonce,
+            'idcom' => $idcom,
+            'idad' => $idad,
             'author' => $author,
             'comment' => $comment,
             'date' => $date->format('Y-m-d H:i:s'),
         ];
-        $sql = 'UPDATE adcomments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
+        $sql = 'UPDATE adcomments SET idcom = :idcom, idad = :idad, author = :author, comment = :comment, date = :date WHERE idcom = :idcom;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -258,14 +241,14 @@ class DataBaseService
     /**
      * Delete an Ad.
      */
-    public function deleteAdComment(string $id): bool
+    public function deleteAdComment(string $idcom): bool
     {
         $isOk = false;
 
         $data = [
-            'id' => $id,
+            'idcom' => $idcom,
         ];
-        $sql = 'DELETE FROM adcomments WHERE id = :id;';
+        $sql = 'DELETE FROM adcomments WHERE idcom = :idcom;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 

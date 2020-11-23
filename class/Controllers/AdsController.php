@@ -75,10 +75,10 @@ class AdsController
                 if(!empty($comments)) {
                     foreach ($comments as $comment) {
                         $html .=
-                            '_____#' . $ad->getId() . ' ' .
-                            $comment->getIdAnnonce() . ' ' .
+                            '_____#' . $comment->getId() . ' ' .
                             $comment->getAuthor() . ' ' .
-                            $comment->getComment() . ' ' . '<br />';
+                            $comment->getComment() . ' ' .
+                            $comment->getDate()->format('Y-m-d H:i:s') . ' ' . '<br />';
                     }
                 }
                 $html .= '<br /><br /><br />';

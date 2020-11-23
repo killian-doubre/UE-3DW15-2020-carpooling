@@ -23,13 +23,13 @@ CREATE TABLE `ads` (
 );
 
 CREATE TABLE `adcomments` (
-    `id` int AUTO_INCREMENT NOT NULL,
-    `idannonce` int  NOT NULL,
+    `idcom` int AUTO_INCREMENT NOT NULL,
+    `idad` int  NOT NULL,
     `author` varchar(255) NOT NULL,
     `comment` varchar(255) NOT NULL,
     `date` datetime NOT NULL,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`idannonce`) REFERENCES ads(`idannonce`)
+    FOREIGN KEY (`idad`) REFERENCES ads(`idannonce`)
 );
 
 CREATE TABLE `reservations` (
