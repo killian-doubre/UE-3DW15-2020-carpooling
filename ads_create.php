@@ -28,7 +28,7 @@ echo $controller->createAd();
     <label for="destination">Destination :</label>
     <input type="text" name="destination">
     <br />
-    <label for="departureDate">Date du voyage au format dd-mm-yyyy :</label>
+    <label for="departureDate">Date du voyage au format yyyy-mm-dd :</label>
     <input type="text" name="departureDate">
     <br />
     <input type="submit" value="Créer une annonce">
