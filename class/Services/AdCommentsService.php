@@ -30,7 +30,7 @@ class AdCommentsService
      */
     public function getAdComments(): array
     {
-        $users = [];
+        $adComments = [];
 
         $dataBaseService = new DataBaseService();
         $adCommentsDTO = $dataBaseService->getAdComments();

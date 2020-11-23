@@ -31,7 +31,7 @@ class AdsService
      */
     public function getAds(): array
     {
-        $users = [];
+        $ads = [];
 
         $dataBaseService = new DataBaseService();
         $adsDTO = $dataBaseService->getAds();
@@ -46,7 +46,7 @@ class AdsService
                 $ad->setPrice($adDTO['price']);
                 $ad->setStart($adDTO['start']);
                 $ad->setDestination($adDTO['destination']);
-                $date = new DateTime($adDTO['departuredate']);
+                $date = new DateTime($adDTO['departureDate']);
                 if ($date !== false) {
                     $ad->setDate($date);
                 }
