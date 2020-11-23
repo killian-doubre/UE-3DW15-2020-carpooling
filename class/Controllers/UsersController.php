@@ -11,13 +11,13 @@ class UsersController
      */
     public function createUser(): string
     {
-        $html = '';
+        $html = 'Veuillez remplir tous les champs !';
 
         // If the form have been submitted :
-        if (isset($_POST['firstname']) &&
-            isset($_POST['lastname']) &&
-            isset($_POST['email']) &&
-            isset($_POST['birthday'])) {
+        if (!empty($_POST['firstname']) &&
+            !empty($_POST['lastname']) &&
+            !empty($_POST['email']) &&
+            !empty($_POST['birthday'])) {
             // Create the user :
             $usersService = new UsersService();
             $isOk = $usersService->setUser(
@@ -69,11 +69,11 @@ class UsersController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id']) &&
-            isset($_POST['firstname']) &&
-            isset($_POST['lastname']) &&
-            isset($_POST['email']) &&
-            isset($_POST['birthday'])) {
+        if (!empty($_POST['id']) &&
+            !empty($_POST['firstname']) &&
+            !empty($_POST['lastname']) &&
+            !empty($_POST['email']) &&
+            !empty($_POST['birthday'])) {
             // Update the user :
             $usersService = new UsersService();
             $isOk = $usersService->setUser(
@@ -101,7 +101,7 @@ class UsersController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id'])) {
+        if (!empty($_POST['id'])) {
             // Delete the user :
             $usersService = new UsersService();
             $isOk = $usersService->deleteUser($_POST['id']);

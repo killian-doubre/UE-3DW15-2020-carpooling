@@ -14,14 +14,14 @@ class AdsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['idauthor']) &&
-            isset($_POST['title']) &&
-            isset($_POST['description']) &&
-            isset($_POST['car']) &&
-            isset($_POST['price']) &&
-            isset($_POST['start']) &&
-            isset($_POST['destination']) &&
-            isset($_POST['departureDate'])) {
+        if (!empty($_POST['idauthor']) &&
+            !empty($_POST['title']) &&
+            !empty($_POST['description']) &&
+            !empty($_POST['car']) &&
+            !empty($_POST['price']) &&
+            !empty($_POST['start']) &&
+            !empty($_POST['destination']) &&
+            !empty($_POST['departureDate'])) {
             // Create the user :
             $adsService = new AdsService();
             $isOk = $adsService->setAd(
@@ -81,15 +81,15 @@ class AdsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id']) &&
-            isset($_POST['idauthor']) &&
-            isset($_POST['title']) &&
-            isset($_POST['description']) &&
-            isset($_POST['car']) &&
-            isset($_POST['price']) &&
-            isset($_POST['start']) &&
-            isset($_POST['destination']) &&
-            isset($_POST['departureDate'])) {
+        if (!empty($_POST['id']) &&
+            !empty($_POST['idauthor']) &&
+            !empty($_POST['title']) &&
+            !empty($_POST['description']) &&
+            !empty($_POST['car']) &&
+            !empty($_POST['price']) &&
+            !empty($_POST['start']) &&
+            !empty($_POST['destination']) &&
+            !empty($_POST['departureDate'])) {
             // Update the user :
             $adsService = new AdsService();
             $isOk = $adsService->setAd(
@@ -121,7 +121,7 @@ class AdsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id'])) {
+        if (!empty($_POST['id'])) {
             // Delete the ad :
             $adsService = new AdsService();
             $isOk = $adsService->deleteAd($_POST['id']);

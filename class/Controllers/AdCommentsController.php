@@ -14,10 +14,10 @@ class AdCommentsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['idannonce']) &&
-            isset($_POST['author']) &&
-            isset($_POST['comment']) &&
-            isset($_POST['date'])) {
+        if (!empty($_POST['idannonce']) &&
+            !empty($_POST['author']) &&
+            !empty($_POST['comment']) &&
+            !empty($_POST['date'])) {
             // Create the ad comment :
             $adCommentsService = new AdCommentsService();
             $isOk = $adCommentsService->setAdComment(
@@ -69,11 +69,11 @@ class AdCommentsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id']) &&
-            isset($_POST['idannonce']) &&
-            isset($_POST['author']) &&
-            isset($_POST['comment']) &&
-            isset($_POST['date'])) {
+        if (!empty($_POST['id']) &&
+            !empty($_POST['idannonce']) &&
+            !empty($_POST['author']) &&
+            !empty($_POST['comment']) &&
+            !empty($_POST['date'])) {
             // Update the ad comment :
             $adCommentsService = new AdCommentsService();
             $isOk = $adCommentsService->setAdComment(
@@ -101,7 +101,7 @@ class AdCommentsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id'])) {
+        if (!empty($_POST['id'])) {
             // Delete the ad comment :
             $adCommentsService = new AdCommentsService();
             $isOk = $adCommentsService->deleteAdComment($_POST['id']);

@@ -14,9 +14,9 @@ class ReservationsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['idproprietaire']) &&
-            isset($_POST['idcovoitureur']) &&
-            isset($_POST['idannonce'])) {
+        if (!empty($_POST['idproprietaire']) &&
+            !empty($_POST['idcovoitureur']) &&
+            !empty($_POST['idannonce'])) {
             // Create the reservation :
             $reservationsService = new ReservationService();
             $isOk = $reservationsService->setReservation(
@@ -66,10 +66,10 @@ class ReservationsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id']) &&
-            isset($_POST['idproprietaire']) &&
-            isset($_POST['idcovoitureur']) &&
-            isset($_POST['idannonce'])) {
+        if (!empty($_POST['id']) &&
+            !empty($_POST['idproprietaire']) &&
+            !empty($_POST['idcovoitureur']) &&
+            !empty($_POST['idannonce'])) {
             // Update the reservation :
             $reservationsService = new ReservationService();
             $isOk = $reservationsService->setReservation(
@@ -96,7 +96,7 @@ class ReservationsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['id'])) {
+        if (!empty($_POST['id'])) {
             // Delete the reservation :
             $reservationsService = new ReservationService();
             $isOk = $reservationsService->deleteReservation($_POST['id']);

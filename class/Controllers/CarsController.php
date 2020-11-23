@@ -14,11 +14,11 @@ class CarsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['marque']) &&
-            isset($_POST['modele']) &&
-            isset($_POST['couleur']) &&
-            isset($_POST['typemoteur']) &&
-            isset($_POST['author'])) {
+        if (!empty($_POST['marque']) &&
+            !empty($_POST['modele']) &&
+            !empty($_POST['couleur']) &&
+            !empty($_POST['typemoteur']) &&
+            !empty($_POST['author'])) {
             // Create the car :
             $carsService = new CarService();
             $isOk = $carsService->setCar(
@@ -73,11 +73,11 @@ class CarsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['idcar']) &&
-            isset($_POST['marque']) &&
-            isset($_POST['modele']) &&
-            isset($_POST['typemoteur']) &&
-            isset($_POST['author'])) {
+        if (!empty($_POST['idcar']) &&
+            !empty($_POST['marque']) &&
+            !empty($_POST['modele']) &&
+            !empty($_POST['typemoteur']) &&
+            !empty($_POST['author'])) {
             // Update the car :
             $carsService = new CarService();
             $isOk = $carsService->setCar(
@@ -106,7 +106,7 @@ class CarsController
         $html = '';
 
         // If the form have been submitted :
-        if (isset($_POST['idcar'])) {
+        if (!empty($_POST['idcar'])) {
             // Delete the car :
             $carsService = new CarService();
             $isOk = $carsService->deleteCar($_POST['idcar']);
