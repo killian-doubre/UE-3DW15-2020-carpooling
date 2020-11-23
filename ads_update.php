@@ -23,7 +23,7 @@ echo $controller->updateAd();
     <input type="text" name="car">
     <br />
     <label for="price">Prix :</label>
-    <input type="number" name="price">
+    <input type="text" name="price">
     <br />
     <label for="start">Depart :</label>
     <input type="text" name="start">

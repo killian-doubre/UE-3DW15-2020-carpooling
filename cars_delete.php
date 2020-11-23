@@ -13,5 +13,5 @@ echo $controller->deleteCar();
     <label for="idcar">Id :</label>
     <input type="text" name="idcar">
     <br />
-    <input type="submit" value="Supprimer un utilisateur">
+    <input type="submit" value="Supprimer une voiture">
 </form>

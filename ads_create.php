@@ -10,6 +10,9 @@ echo $controller->createAd();
 
 <p>Création d'une annonce</p>
 <form method="post" action="ads_create.php" name ="adCreateForm">
+    <label for="idauthor">Auteur :</label>
+    <input type="text" name="idauthor">
+    <br />
     <label for="title">Titre :</label>
     <input type="text" name="title">
     <br />
@@ -20,7 +23,7 @@ echo $controller->createAd();
     <input type="text" name="car">
     <br />
     <label for="price">Prix :</label>
-    <input type="number" name="price">
+    <input type="text" name="price">
     <br />
     <label for="start">Depart :</label>
     <input type="text" name="start">

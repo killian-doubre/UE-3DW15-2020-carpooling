@@ -36,9 +36,9 @@ class AdsController
                 $_POST['departureDate']
             );
             if ($isOk) {
-                $html = 'Utilisateur créé avec succès.';
+                $html = 'Annonce créé avec succès.';
             } else {
-                $html = 'Erreur lors de la création de l\'utilisateur.';
+                $html = 'Erreur lors de la création de l\'annonce.';
             }
         } else {
             $html = 'Veuillez remplir tous les champs du formulaire';

@@ -78,12 +78,12 @@ class Ad
 
 
     // GET et SET de id ($price)
-    public function getPrice(): int
+    public function getPrice(): string
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): void
+    public function setPrice(string $price): void
     {
         $this->price = $price;
     }

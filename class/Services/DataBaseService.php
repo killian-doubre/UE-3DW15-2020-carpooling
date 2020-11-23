@@ -112,7 +112,7 @@ class DataBaseService
     /**
      * Create an Ad.
      */
-    public function createAd(string $idauthor, string $title, string $description, string $car, int $price, string $start, string $destination,
+    public function createAd(string $idauthor, string $title, string $description, string $car, string $price, string $start, string $destination,
     DateTime $departureDate): bool
     {
         $isOk = false;
@@ -155,7 +155,7 @@ class DataBaseService
     /**
      * Update an Ad.
      */
-    public function updateAd(string $id, string $idauthor, string $title, string $description, string $car, int $price, string $start, string $destination,
+    public function updateAd(string $id, string $idauthor, string $title, string $description, string $car, string $price, string $start, string $destination,
     DateTime $departureDate): bool
     {
         $isOk = false;

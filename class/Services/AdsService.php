@@ -10,7 +10,7 @@ class AdsService
     /**
      * Create or update an Ad.
      */
-    public function setAd(?string $id, string $title, string $description, string $car, int $price, string $start, string $destination,
+    public function setAd(?string $id, string $idauthor, string $title, string $description, string $car, string $price, string $start, string $destination,
     string $departureDate): bool
     {
         $isOk = false;
@@ -18,9 +18,9 @@ class AdsService
         $dataBaseService = new DataBaseService();
         $departureDateTime = new DateTime($departureDate);
         if (empty($id)) {
-            $isOk = $dataBaseService->createAd($title, $description, $car, $price, $start, $destination, $departureDateTime);
+            $isOk = $dataBaseService->createAd($idauthor, $title, $description, $car, $price, $start, $destination, $departureDateTime);
         } else {
-            $isOk = $dataBaseService->updateAd($id, $title, $description, $car, $price, $start, $destination, $departureDateTime);
+            $isOk = $dataBaseService->updateAd($id, $idauthor, $title, $description, $car, $price, $start, $destination, $departureDateTime);
         }
 
         return $isOk;
