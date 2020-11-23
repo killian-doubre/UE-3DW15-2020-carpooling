@@ -58,7 +58,6 @@ class CarsController
             $html .=
                 '#' . $car->getIdCar() . ' ' .
                 $car->getMarque() . ' ' .
-                $car->getLastname() . ' ' .
                 $car->getModele() . ' ' .
                 $car->getCouleur() . ' ' .
                 $car->getTypeMoteur() . ' ' .

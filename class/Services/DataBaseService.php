@@ -280,19 +280,18 @@ class DataBaseService
     /**
      * Create an Car.
      */
-    public function createCar(string $idCar, string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
+    public function createCar(string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
     {
         $isOk = false;
 
         $data = [
-            'idcar' => $idCar,
             'marque' => $marque,
             'modele' => $modele,
             'typemoteur' => $typeMoteur,
             'couleur' => $couleur,
             'author' => $author,
         ];
-        $sql = 'INSERT INTO cars (idcar, marque, modele, typemoteur, couleur, author) VALUES (:idCar, :marque, :modele, :typemoteur, :couleur, :author)';
+        $sql = 'INSERT INTO cars (marque, modele, typemoteur, couleur, author) VALUES (:marque, :modele, :typemoteur, :couleur, :author)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -306,7 +305,7 @@ class DataBaseService
     {
         $cars = [];
 
-        $sql = 'SELECT * FROM Cars';
+        $sql = 'SELECT * FROM cars';
         $query = $this->connection->query($sql);
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         if (!empty($results)) {

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\CarModel;
+use App\Entities\CarModel;
 
 class CarService
 {
@@ -15,7 +15,7 @@ class CarService
 
         $dataBaseService = new DataBaseService();
         if (empty($idCar)) {
-            $isOk = $dataBaseService->createCar($idCar, $marque, $modele, $typeMoteur, $couleur, $author);
+            $isOk = $dataBaseService->createCar($marque, $modele, $typeMoteur, $couleur, $author);
         } else {
             $isOk = $dataBaseService->updateCar($idCar, $marque, $modele, $typeMoteur, $couleur, $author);
         }
@@ -36,12 +36,12 @@ class CarService
         if (!empty($carsDTO)) {
             foreach ($carsDTO as $carDTO) {
                 $car = new CarModel();
-                $car->setIdCar($carsDTO['id']);
-                $car->setMarque($carsDTO['marque']);
-                $car->setModele($carsDTO['modele']);
-                $car->setCouleur($carsDTO['couleur']);
-                $car->setTypeMoteur($carsDTO['typeMoteur']);
-                $car->setAuthor($carsDTO['author']);
+                $car->setIdCar($carDTO['idcar']);
+                $car->setMarque($carDTO['marque']);
+                $car->setModele($carDTO['modele']);
+                $car->setCouleur($carDTO['couleur']);
+                $car->setTypeMoteur($carDTO['typemoteur']);
+                $car->setAuthor($carDTO['author']);
                 $cars[] = $car;
             }
         }

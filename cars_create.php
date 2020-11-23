@@ -16,6 +16,9 @@ echo $controller->createCar();
     <label for="modele">Modèle de la voiture :</label>
     <input type="text" name="modele">
     <br />
+    <label for="couleur">Couleur de la voiture :</label>
+    <input type="text" name="couleur">
+    <br />
     <label for="typemoteur">Type du moteur (essence, diesel, éléctrique) :</label>
     <input type="text" name="typemoteur">
     <br />
