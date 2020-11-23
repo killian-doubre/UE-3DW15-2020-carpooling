@@ -78,6 +78,7 @@ class CarsController
         if (!empty($_POST['idcar']) &&
             !empty($_POST['marque']) &&
             !empty($_POST['modele']) &&
+            !empty($_POST['couleur']) &&
             !empty($_POST['typemoteur']) &&
             !empty($_POST['author'])) {
             // Update the car :

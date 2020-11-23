@@ -9,7 +9,7 @@ echo $controller->updateCar();
 ?>
 
 <p>Mise à jour de la voiture</p>
-<form method="post" action="cars_updare.php" name ="carsUpdateForm">
+<form method="post" action="cars_update.php" name ="carsUpdateForm">
     <label for="idcar">ID de la voiture :</label>
     <input type="text" name="idcar">
     <br />

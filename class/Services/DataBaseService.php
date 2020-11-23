@@ -280,18 +280,18 @@ class DataBaseService
     /**
      * Create an Car.
      */
-    public function createCar(string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
+    public function createCar(string $marque, string $modele, string $couleur, string $typeMoteur, string $author): bool
     {
         $isOk = false;
 
         $data = [
             'marque' => $marque,
             'modele' => $modele,
-            'typemoteur' => $typeMoteur,
             'couleur' => $couleur,
+            'typemoteur' => $typeMoteur,
             'author' => $author,
         ];
-        $sql = 'INSERT INTO cars (marque, modele, typemoteur, couleur, author) VALUES (:marque, :modele, :typemoteur, :couleur, :author)';
+        $sql = 'INSERT INTO cars (marque, modele, typemoteur, couleur, author) VALUES (:marque, :modele, :couleur, :typemoteur, :author)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -318,7 +318,7 @@ class DataBaseService
     /**
      * Update an Car.
      */
-    public function updateCar(string $idCar, string $marque, string $modele, string $typeMoteur, string $couleur, string $author): bool
+    public function updateCar(string $idCar, string $marque, string $modele, string $couleur, string $typeMoteur, string $author): bool
     {
         $isOk = false;
 
@@ -326,11 +326,11 @@ class DataBaseService
             'idcar' => $idCar,
             'marque' => $marque,
             'modele' => $modele,
-            'typemoteur' => $typeMoteur,
             'couleur' => $couleur,
+            'typemoteur' => $typeMoteur,
             'author' => $author,
         ];
-        $sql = 'UPDATE cars SET idcar = :idcar, marque = :marque, modele = :modele, typemoteur = :typemoteur, couleur = :couleur, author = :author WHERE idCar = :idCar;';
+        $sql = 'UPDATE cars SET idcar = :idcar, marque = :marque, modele = :modele, couleur = :couleur, typemoteur = :typemoteur, author = :author WHERE idcar = :idcar;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
