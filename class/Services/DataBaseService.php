@@ -79,7 +79,7 @@ class DataBaseService
             'firstname' => $firstname,
             'lastname' => $lastname,
             'email' => $email,
-            'birthday' => $birthday->format(Y-m-d),
+            'birthday' => $birthday->format('Y-m-d'),
         ];
         $sql = 'UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, birthday = :birthday WHERE id = :id;';
         $query = $this->connection->prepare($sql);
@@ -125,7 +125,7 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departureDate' => $departureDate->format(Y-m-d),
+            'departureDate' => $departureDate->format('Y-m-d'),
         ];
         $sql = 'INSERT INTO ads (idauthor, title, description, car, price, start, destination, departureDate) VALUES (:idauthor, :title, :description, :car, :price
         , :start, :destination, :departureDate)';
@@ -169,7 +169,7 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departureDate' => $departureDate->format(Y-m-d),
+            'departureDate' => $departureDate->format('Y-m-d'),
         ];
         $sql = 'UPDATE ads SET id = :id, idauthor = :idauthor, title = :title, description = :description, car = :car, price = :price, start = :start,
         destination = :destination, departureDate = :departureDate WHERE id = :id;';
@@ -211,7 +211,7 @@ class DataBaseService
             'idannonce' => $idAnnonce,
             'author' => $author,
             'comment' => $comment,
-            'date' => $date->format(Y-m-d),
+            'date' => $date->format('Y-m-d'),
         ];
         $sql = 'INSERT INTO adcomments (idannonce, author, comment, date) VALUES (:idannonce, :author, :comment, :date)';
         $query = $this->connection->prepare($sql);
@@ -249,7 +249,7 @@ class DataBaseService
             'idannonce' => $idAnnonce,
             'author' => $author,
             'comment' => $comment,
-            'date' => $date->format(Y-m-d),
+            'date' => $date->format('Y-m-d'),
         ];
         $sql = 'UPDATE adcomments SET id = :id, idannonce = :idannonce, author = :author, comment = :comment, date = :date WHERE id = :id;';
         $query = $this->connection->prepare($sql);
