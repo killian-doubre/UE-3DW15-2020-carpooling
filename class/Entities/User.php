@@ -11,6 +11,7 @@ class User
     private $lastname;
     private $email;
     private $birthday;
+    private $cars;
 
 
     // GET et SET de id ($id)
@@ -70,5 +71,17 @@ class User
     public function setBirthday(DateTime $birthday): void
     {
         $this->birthday = $birthday;
+    }
+
+
+    // GET et SET de id ($cars)
+    public function getAllCars(): array
+    {
+        return $this->cars;
+    }
+    
+    public function setAllCars(array $cars): void
+    {
+        $this->cars = $cars;
     }
 }

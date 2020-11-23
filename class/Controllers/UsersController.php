@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Entities\CarModel;
 use App\Services\UsersService;
 
 class UsersController
@@ -59,6 +60,18 @@ class UsersController
                 $user->getLastname() . ' ' .
                 $user->getEmail() . ' ' .
                 $user->getBirthday()->format('Y-m-d') . '<br />';
+            $cars = $user->getAllCars();
+            if(!empty($cars)) {
+                foreach ($cars as $car) {
+                    $html .=
+                        '_____#' . $car->getIdCar() . ' ' .
+                        $car->getMarque() . ' ' .
+                        $car->getModele() . ' ' .
+                        $car->getCouleur() . ' ' .
+                        $car->getTypeMoteur() . '<br />';
+                }
+            }
+            $html .= '<br /><br /><br />';
         }
 
         return $html;

@@ -56,8 +56,8 @@ class DataBaseService
     public function getUsers(): array
     {
         $users = [];
-
-        $sql = 'SELECT * FROM users';
+        
+        $sql = 'SELECT * FROM users LEFT JOIN cars ON users.id = cars.author UNION SELECT * FROM users RIGHT JOIN cars ON users.id = cars.author ORDER BY id asc';
         $query = $this->connection->query($sql);
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
         if (!empty($results)) {
@@ -296,23 +296,6 @@ class DataBaseService
         $isOk = $query->execute($data);
 
         return $isOk;
-    }
-
-    /**
-     * Return all Cars.
-     */
-    public function getCars(): array
-    {
-        $cars = [];
-
-        $sql = 'SELECT * FROM cars';
-        $query = $this->connection->query($sql);
-        $results = $query->fetchAll(PDO::FETCH_ASSOC);
-        if (!empty($results)) {
-            $cars = $results;
-        }
-
-        return $cars;
     }
 
     /**

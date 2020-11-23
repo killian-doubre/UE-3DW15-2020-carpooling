@@ -43,31 +43,6 @@ class CarsController
     }
 
     /**
-     * Return the html for the read action.
-     */
-    public function getCars(): string
-    {
-        $html = '';
-
-        // Get all cars :
-        $carsService = new CarService();
-        $cars = $carsService->getCars();
-
-        // Get html :
-        foreach ($cars as $car) {
-            $html .=
-                '#' . $car->getIdCar() . ' ' .
-                $car->getMarque() . ' ' .
-                $car->getModele() . ' ' .
-                $car->getCouleur() . ' ' .
-                $car->getTypeMoteur() . ' ' .
-                $car->getAuthor() . '<br />';
-        } 
-
-        return $html;
-    }
-
-    /**
      * Update the car.
      */
     public function updateCar(): string

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Entities\User;
+use App\Entities\CarModel;
 use DateTime;
 
 class UsersService
@@ -31,24 +32,52 @@ class UsersService
     public function getUsers(): array
     {
         $users = [];
+        $cars = [];
+        $check = true;
+        $loop = 0;
+        $user = new User();
+        $tempId = null;
 
         $dataBaseService = new DataBaseService();
         $usersDTO = $dataBaseService->getUsers();
         if (!empty($usersDTO)) {
             foreach ($usersDTO as $userDTO) {
-                $user = new User();
-                $user->setId($userDTO['id']);
-                $user->setFirstname($userDTO['firstname']);
-                $user->setLastname($userDTO['lastname']);
-                $user->setEmail($userDTO['email']);
-                $date = new DateTime($userDTO['birthday']);
-                if ($date !== false) {
-                    $user->setbirthday($date);
-                }
-                $users[] = $user;
-            }
-        }
+                $check = ($tempId != $userDTO['id']);
 
+                if($check && $loop > 0) {
+                    $user->setAllCars($cars);
+                    $users[] = $user;
+                }
+
+                if($check) {
+                    $tempId = $userDTO['id'];
+                    $user = new User();
+                    $user->setId($userDTO['id']);
+                    $user->setFirstname($userDTO['firstname']);
+                    $user->setLastname($userDTO['lastname']);
+                    $user->setEmail($userDTO['email']);
+                    $date = new DateTime($userDTO['birthday']);
+                    if ($date !== false) {
+                        $user->setbirthday($date);
+                    }
+                    $cars = [];
+                }
+
+                if ($userDTO['idcar'] != null) {
+                    $car = new CarModel();
+                    $car->setIdCar($userDTO['idcar']);
+                    $car->setMarque($userDTO['marque']);
+                    $car->setModele($userDTO['modele']);
+                    $car->setCouleur($userDTO['couleur']);
+                    $car->setTypeMoteur($userDTO['typemoteur']);
+                    $car->setAuthor($userDTO['author']);
+                    $cars[] = $car;
+                }
+                $loop += 1;
+            }
+            $user->setAllCars($cars);
+            $users[] = $user;
+        }
         return $users;
     }
 

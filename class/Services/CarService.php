@@ -24,32 +24,6 @@ class CarService
     }
 
     /**
-     * Get all cars.
-     */
-    public function getCars(): array
-    {
-        $cars = [];
-
-        $databaseService = new DataBaseService();
-        $carsDTO = $databaseService->getCars();
-
-        if (!empty($carsDTO)) {
-            foreach ($carsDTO as $carDTO) {
-                $car = new CarModel();
-                $car->setIdCar($carDTO['idcar']);
-                $car->setMarque($carDTO['marque']);
-                $car->setModele($carDTO['modele']);
-                $car->setCouleur($carDTO['couleur']);
-                $car->setTypeMoteur($carDTO['typemoteur']);
-                $car->setAuthor($carDTO['author']);
-                $cars[] = $car;
-            }
-        }
-
-        return $cars;
-    }
-
-    /**
      * Delete a car.
      */
     public function deleteCar(string $id): bool
