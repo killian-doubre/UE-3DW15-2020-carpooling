@@ -6,7 +6,7 @@ use DateTime;
 
 class Ad
 {
-    private $id;
+    private $idannonce;
     private $idauthor;
     private $title;
     private $description;
@@ -20,12 +20,12 @@ class Ad
     // GET et SET de id ($id)
     public function getId(): string
     {
-        return $this->id;
+        return $this->idannonce;
     }
 
-    public function setId(string $id): void
+    public function setId(string $idannonce): void
     {
-        $this->id = $id;
+        $this->idannonce = $idannonce;
     }
 
 

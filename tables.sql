@@ -16,7 +16,7 @@ CREATE TABLE `ads` (
     `price` varchar(255) NOT NULL,
     `start` varchar(255) NOT NULL,
     `destination` varchar(255) NOT NULL,
-    `departureDate` datetime NOT NULL,
+    `departuredate` datetime NOT NULL,
     PRIMARY KEY (`idannonce`),
     FOREIGN KEY (`car`) REFERENCES car(`car`),
     FOREIGN KEY (`idauthor`) REFERENCES users(`idauthor`)

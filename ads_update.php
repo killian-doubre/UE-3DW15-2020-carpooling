@@ -9,9 +9,12 @@ echo $controller->updateAd();
 ?>
 
 <p>Mise à jour de l'annonce</p>
-<form method="post" action="ads_updare.php" name ="adUpdateForm">
+<form method="post" action="ads_update.php" name ="adUpdateForm">
     <label for="idannonce">ID Annonce :</label>
     <input type="text" name="idannonce">
+    <br />
+    <label for="idauthor">Auteur :</label>
+    <input type="text" name="idauthor">
     <br />
     <label for="title">Titre :</label>
     <input type="text" name="title">
@@ -31,8 +34,8 @@ echo $controller->updateAd();
     <label for="destination">Destination :</label>
     <input type="text" name="destination">
     <br />
-    <label for="departureDate">Date du voyage au format yyyy-mm-dd :</label>
-    <input type="text" name="departureDate">
+    <label for="departuredate">Date du voyage au format yyyy-mm-dd :</label>
+    <input type="text" name="departuredate">
     <br />
     <input type="submit" value="Modifier l'annonce">
 </form>

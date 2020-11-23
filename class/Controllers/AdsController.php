@@ -21,8 +21,8 @@ class AdsController
             !empty($_POST['price']) &&
             !empty($_POST['start']) &&
             !empty($_POST['destination']) &&
-            !empty($_POST['departureDate'])) {
-            // Create the user :
+            !empty($_POST['departuredate'])) {
+            // Create the ad :
             $adsService = new AdsService();
             $isOk = $adsService->setAd(
                 null,
@@ -33,7 +33,7 @@ class AdsController
                 $_POST['price'],
                 $_POST['start'],
                 $_POST['destination'],
-                $_POST['departureDate']
+                $_POST['departuredate']
             );
             if ($isOk) {
                 $html = 'Annonce créé avec succès.';
@@ -55,7 +55,7 @@ class AdsController
     {
         $html = '';
 
-        // Get all users :
+        // Get all ads :
         $adsService = new AdsService();
         $ads = $adsService->getAds();
 
@@ -84,7 +84,7 @@ class AdsController
         $html = '';
 
         // If the form have been submitted :
-        if (!empty($_POST['id']) &&
+        if (!empty($_POST['idannonce']) &&
             !empty($_POST['idauthor']) &&
             !empty($_POST['title']) &&
             !empty($_POST['description']) &&
@@ -92,11 +92,11 @@ class AdsController
             !empty($_POST['price']) &&
             !empty($_POST['start']) &&
             !empty($_POST['destination']) &&
-            !empty($_POST['departureDate'])) {
-            // Update the user :
+            !empty($_POST['departuredate'])) {
+            // Update the ad :
             $adsService = new AdsService();
             $isOk = $adsService->setAd(
-                $_POST['id'],
+                $_POST['idannonce'],
                 $_POST['idauthor'],
                 $_POST['title'],
                 $_POST['description'],
@@ -104,7 +104,7 @@ class AdsController
                 $_POST['price'],
                 $_POST['start'],
                 $_POST['destination'],
-                $_POST['departureDate']
+                $_POST['departuredate']
             );
             if ($isOk) {
                 $html = 'Annonce mis à jour avec succès.';
@@ -127,10 +127,10 @@ class AdsController
         $html = '';
 
         // If the form have been submitted :
-        if (!empty($_POST['id'])) {
+        if (!empty($_POST['idannonce'])) {
             // Delete the ad :
             $adsService = new AdsService();
-            $isOk = $adsService->deleteAd($_POST['id']);
+            $isOk = $adsService->deleteAd($_POST['idannonce']);
             if ($isOk) {
                 $html = 'Annonce supprimée avec succès.';
             } else {

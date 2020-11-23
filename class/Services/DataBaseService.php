@@ -125,10 +125,10 @@ class DataBaseService
             'price' => $price,
             'start' => $start,
             'destination' => $destination,
-            'departureDate' => $departureDate->format('Y-m-d'),
+            'departuredate' => $departureDate->format('Y-m-d'),
         ];
-        $sql = 'INSERT INTO ads (idauthor, title, description, car, price, start, destination, departureDate) VALUES (:idauthor, :title, :description, :car, :price
-        , :start, :destination, :departureDate)';
+        $sql = 'INSERT INTO ads (idauthor, title, description, car, price, start, destination, departuredate) VALUES (:idauthor, :title, :description, :car, :price
+        , :start, :destination, :departuredate)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -155,13 +155,13 @@ class DataBaseService
     /**
      * Update an Ad.
      */
-    public function updateAd(string $id, string $idauthor, string $title, string $description, string $car, string $price, string $start, string $destination,
+    public function updateAd(string $idannonce, string $idauthor, string $title, string $description, string $car, string $price, string $start, string $destination,
     DateTime $departureDate): bool
     {
         $isOk = false;
 
         $data = [
-            'id' => $id,
+            'idannonce' => $idannonce,
             'idauthor' => $idauthor,
             'title' => $title,
             'description' => $description,
@@ -171,8 +171,8 @@ class DataBaseService
             'destination' => $destination,
             'departureDate' => $departureDate->format('Y-m-d'),
         ];
-        $sql = 'UPDATE ads SET id = :id, idauthor = :idauthor, title = :title, description = :description, car = :car, price = :price, start = :start,
-        destination = :destination, departureDate = :departureDate WHERE id = :id;';
+        $sql = 'UPDATE ads SET idannonce = :idannonce, idauthor = :idauthor, title = :title, description = :description, car = :car, price = :price, start = :start,
+        destination = :destination, departureDate = :departureDate WHERE idannonce = :idannonce;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 
@@ -182,14 +182,14 @@ class DataBaseService
     /**
      * Delete an Ad.
      */
-    public function deleteAd(string $id): bool
+    public function deleteAd(string $idannonce): bool
     {
         $isOk = false;
 
         $data = [
-            'id' => $id,
+            'idannonce' => $idannonce,
         ];
-        $sql = 'DELETE FROM ads WHERE id = :id;';
+        $sql = 'DELETE FROM ads WHERE idannonce = :idannonce;';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 

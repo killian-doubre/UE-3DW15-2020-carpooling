@@ -10,8 +10,8 @@ echo $controller->deleteAd();
 
 <p>Supression d'une annonce</p>
 <form method="post" action="ads_delete.php" name="adDeleteForm">
-    <label for="id">Id Commentaire:</label>
-    <input type="text" name="id">
+    <label for="idannonce">Id Annonce:</label>
+    <input type="text" name="idannonce">
     <br />
     <input type="submit" value="Supprimer une annonce">
 </form>
