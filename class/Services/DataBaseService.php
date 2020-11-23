@@ -357,17 +357,17 @@ class DataBaseService
     /**
      * Create an Reservation.
      */
-    public function createReservation(string $id, string $idProprietaire, string $idCovoitureur, string $idAnnonce): bool
+    public function createReservation(string $idProprietaire, string $idCovoitureur, string $idAnnonce): bool
     {
         $isOk = false;
 
         $data = [
-            'id' => $id,
+
             'idproprietaire' => $idProprietaire,
             'idcovoitureur' => $idCovoitureur,
             'idannonce' => $idAnnonce,
         ];
-        $sql = 'INSERT INTO reservations (id, idproprietaire, idcovoitureur, idannonce) VALUES (:id, :idproprietaire, :idcovoitureur, :idannonce)';
+        $sql = 'INSERT INTO reservations (idproprietaire, idcovoitureur, idannonce) VALUES (:idproprietaire, :idcovoitureur, :idannonce)';
         $query = $this->connection->prepare($sql);
         $isOk = $query->execute($data);
 

@@ -9,7 +9,7 @@ echo $controller->updateReservations();
 ?>
 
 <p>Mise à jour de la réservation</p>
-<form method="post" action="reservations_updare.php" name ="reservationsUpdateForm">
+<form method="post" action="reservations_update.php" name ="reservationsUpdateForm">
     <label for="id">ID :</label>
     <input type="text" name="id">
     <br />

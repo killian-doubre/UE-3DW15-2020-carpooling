@@ -15,7 +15,7 @@ class ReservationService
 
         $dataBaseService = new DataBaseService();
         if (empty($id)) {
-            $isOk = $dataBaseService->createReservation($id, $idProprietaire, $idCovoitureur, $idAnnonce);
+            $isOk = $dataBaseService->createReservation($idProprietaire, $idCovoitureur, $idAnnonce);
         } else {
             $isOk = $dataBaseService->updateReservation($id, $idProprietaire, $idCovoitureur, $idAnnonce);
         }
@@ -37,9 +37,9 @@ class ReservationService
             foreach ($reservationsDTO as $reservationDTO) {
                 $reservation = new Reservation();
                 $reservation->setId($reservationDTO['id']);
-                $reservation->setIdProprietaire($reservationDTO['idProprietaire']);
-                $reservation->setIdCovoitureur($reservationDTO['idCovoitureur']);
-                $reservation->setIdAnnonce($reservationDTO['idAnnonce']);
+                $reservation->setIdProprietaire($reservationDTO['idproprietaire']);
+                $reservation->setIdCovoitureur($reservationDTO['idcovoitureur']);
+                $reservation->setIdAnnonce($reservationDTO['idannonce']);
                 $reservations[] = $reservation;
             }
         }
