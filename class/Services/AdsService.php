@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Entities\Ad;
+use App\Entities\AdComment;
 use DateTime;
 
 class AdsService
@@ -31,27 +32,57 @@ class AdsService
      */
     public function getAds(): array
     {
-        $ads = [];
+        $ads = [];        
+        $comments = [];
+        $check = true;
+        $loop = 0;
+        $ad = new Ad();
+        $tempId = null;
 
         $dataBaseService = new DataBaseService();
         $adsDTO = $dataBaseService->getAds();
         if (!empty($adsDTO)) {
             foreach ($adsDTO as $adDTO) {
-                $ad = new Ad();
-                $ad->setId($adDTO['idannonce']);
-                $ad->setIdAuthor($adDTO['idauthor']);
-                $ad->setTitle($adDTO['title']);
-                $ad->setDescription($adDTO['description']);
-                $ad->setCar($adDTO['car']);
-                $ad->setPrice($adDTO['price']);
-                $ad->setStart($adDTO['start']);
-                $ad->setDestination($adDTO['destination']);
-                $date = new DateTime($adDTO['departuredate']);
-                if ($date !== false) {
-                    $ad->setDate($date);
+                $check = ($tempId != $adDTO['idannonce']);
+
+                if($check && $loop > 0) {
+                    $ad->setAllComments($comments);
+                    $ads[] = $ad;
                 }
-                $ads[] = $ad;
+
+                if($check) {
+                    $tempId = $adDTO['idannonce'];
+                    $ad = new Ad();
+                    $ad->setId($adDTO['idannonce']);
+                    $ad->setIdAuthor($adDTO['idauthor']);
+                    $ad->setTitle($adDTO['title']);
+                    $ad->setDescription($adDTO['description']);
+                    $ad->setCar($adDTO['car']);
+                    $ad->setPrice($adDTO['price']);
+                    $ad->setStart($adDTO['start']);
+                    $ad->setDestination($adDTO['destination']);
+                    $date = new DateTime($adDTO['departuredate']);
+                    if ($date !== false) {
+                        $ad->setDate($date);
+                    }
+                    $ads[] = $ad;
+                }
+                if ($adDTO['id'] != null) {
+                    $adComment = new AdComment();
+                    $adComment->setId($adDTO['id']);
+                    $adComment->setIdAnnonce($adDTO['idannonce']);
+                    $adComment->setAuthor($adDTO['author']);
+                    $adComment->setComment($adDTO['comment']);
+                    $date = new DateTime($adDTO['date']);
+                    if ($date !== false) {
+                        $adComment->setDate($date);
+                    }
+                    $adComments[] = $adComment;
+                }
+                $loop += 1;
             }
+            $ad->setAllComments($comments);
+            $ads[] = $ad;
         }
 
         return $ads;

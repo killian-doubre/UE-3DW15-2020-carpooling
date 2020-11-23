@@ -197,9 +197,6 @@ class DataBaseService
     }
 
 
-
-
-
     /**
      * Create an AdComment.
      */
@@ -395,7 +392,7 @@ class DataBaseService
     }
 
     /**
-     * Delete an Car.
+     * Delete an Reservation.
      */
     public function deleteReservation(string $id): bool
     {

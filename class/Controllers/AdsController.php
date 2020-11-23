@@ -71,6 +71,17 @@ class AdsController
                 $ad->getStart() . ' ' .
                 $ad->getDestination() . ' ' .
                 $ad->getDate()->format('Y-m-d H:i') . '<br />';
+                $comments = $ad->getAllComments();
+                if(!empty($comments)) {
+                    foreach ($comments as $comment) {
+                        $html .=
+                            '_____#' . $ad->getId() . ' ' .
+                            $comment->getIdAnnonce() . ' ' .
+                            $comment->getAuthor() . ' ' .
+                            $comment->getComment() . ' ' . '<br />';
+                    }
+                }
+                $html .= '<br /><br /><br />';
         }
 
         return $html;

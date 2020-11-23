@@ -39,30 +39,6 @@ class AdCommentsController
     }
 
     /**
-     * Return the html for the read action.
-     */
-    public function getAdComments(): string
-    {
-        $html = '';
-
-        // Get all ad comments :
-        $adCommentsService = new AdCommentsService();
-        $ads = $adCommentsService->getAdComments();
-
-        // Get html :
-        foreach ($ads as $ad) {
-            $html .=
-                '#' . $ad->getId() . ' ' .
-                $ad->getIdAnnonce() . ' ' .
-                $ad->getAuthor() . ' ' .
-                $ad->getComment() . ' ' .
-                $ad->getDate()->format('Y-m-d H:i:s') . '<br />';
-        }
-
-        return $html;
-    }
-
-    /**
      * Update the ad comment.
      */
     public function updateAdComment(): string

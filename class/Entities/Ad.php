@@ -123,4 +123,15 @@ class Ad
     {
         $this->departureDate = $departureDate;
     }
+
+    // GET et SET de id ($comments)
+    public function getAllComments(): array
+    {
+        return $this->comments;
+    }
+    
+    public function setAllComments(array $comments): void
+    {
+        $this->comments = $comments;
+    }
 }
