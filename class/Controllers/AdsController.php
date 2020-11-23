@@ -11,7 +11,7 @@ class AdsController
      */
     public function createAd(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['idauthor']) &&
@@ -40,7 +40,10 @@ class AdsController
             } else {
                 $html = 'Erreur lors de la création de l\'utilisateur.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -50,7 +53,7 @@ class AdsController
      */
     public function getAds(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // Get all users :
         $adsService = new AdsService();
@@ -78,7 +81,7 @@ class AdsController
      */
     public function updateAd(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -108,7 +111,10 @@ class AdsController
             } else {
                 $html = 'Erreur lors de la mise à jour de l\'annonce.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -118,7 +124,7 @@ class AdsController
      */
     public function deleteAd(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {
@@ -130,7 +136,10 @@ class AdsController
             } else {
                 $html = 'Erreur lors de la supression de l\'annonce.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }

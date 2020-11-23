@@ -11,7 +11,7 @@ class ReservationsController
      */
     public function createReservation(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['idproprietaire']) &&
@@ -30,7 +30,10 @@ class ReservationsController
             } else {
                 $html = 'Erreur lors de la création de la réservation.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -40,7 +43,7 @@ class ReservationsController
      */
     public function getReservations(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // Get all reservations :
         $reservationsService = new ReservationService();
@@ -63,7 +66,7 @@ class ReservationsController
      */
     public function updateReservations(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -83,7 +86,10 @@ class ReservationsController
             } else {
                 $html = 'Erreur lors de la mise à jour de la réservation.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -93,7 +99,7 @@ class ReservationsController
      */
     public function deleteReservation(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {
@@ -105,7 +111,10 @@ class ReservationsController
             } else {
                 $html = 'Erreur lors de la supression de la réservation.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }

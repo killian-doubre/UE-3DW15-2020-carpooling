@@ -11,7 +11,7 @@ class UsersController
      */
     public function createUser(): string
     {
-        $html = 'Veuillez remplir tous les champs !';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['firstname']) &&
@@ -32,7 +32,10 @@ class UsersController
             } else {
                 $html = 'Erreur lors de la création de l\'utilisateur.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -42,7 +45,7 @@ class UsersController
      */
     public function getUsers(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // Get all users :
         $usersService = new UsersService();
@@ -66,7 +69,7 @@ class UsersController
      */
     public function updateUser(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['id']) &&
@@ -88,7 +91,10 @@ class UsersController
             } else {
                 $html = 'Erreur lors de la mise à jour de l\'utilisateur.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -98,7 +104,7 @@ class UsersController
      */
     public function deleteUser(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['id'])) {
@@ -110,7 +116,10 @@ class UsersController
             } else {
                 $html = 'Erreur lors de la supression de l\'utilisateur.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }

@@ -11,7 +11,7 @@ class CarsController
      */
     public function createCar(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['marque']) &&
@@ -34,7 +34,10 @@ class CarsController
             } else {
                 $html = 'Erreur lors de la création de la voiture.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -44,7 +47,7 @@ class CarsController
      */
     public function getCars(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // Get all cars :
         $carsService = new CarService();
@@ -60,7 +63,7 @@ class CarsController
                 $car->getCouleur() . ' ' .
                 $car->getTypeMoteur() . ' ' .
                 $car->getAuthor() . '<br />';
-        }
+        } 
 
         return $html;
     }
@@ -70,7 +73,7 @@ class CarsController
      */
     public function updateCar(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['idcar']) &&
@@ -93,7 +96,10 @@ class CarsController
             } else {
                 $html = 'Erreur lors de la mise à jour de la voiture.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
@@ -103,7 +109,7 @@ class CarsController
      */
     public function deleteCar(): string
     {
-        $html = 'Veuillez remplir tous les champs du formulaire';
+        $html = '';
 
         // If the form have been submitted :
         if (!empty($_POST['idcar'])) {
@@ -115,7 +121,10 @@ class CarsController
             } else {
                 $html = 'Erreur lors de la supression de la voiture.';
             }
+        } else {
+            $html = 'Veuillez remplir tous les champs du formulaire';
         }
+
 
         return $html;
     }
