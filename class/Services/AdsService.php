@@ -46,7 +46,7 @@ class AdsService
                 $ad->setPrice($adDTO['price']);
                 $ad->setStart($adDTO['start']);
                 $ad->setDestination($adDTO['destination']);
-                $date = new DateTime($adDTO['departureDate']);
+                $date = new DateTime($adDTO['departuredate']);
                 if ($date !== false) {
                     $ad->setDate($date);
                 }
