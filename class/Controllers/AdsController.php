@@ -67,7 +67,7 @@ class AdsController
                 $ad->getTitle() . ' ' .
                 $ad->getDescription() . ' ' .
                 $ad->getCar() . ' ' .
-                $ad->getPrice() . ' ' .
+                $ad->getPrice() . '€ ' .
                 $ad->getStart() . ' ' .
                 $ad->getDestination() . ' ' .
                 $ad->getDate()->format('Y-m-d H:i') . '<br />';
