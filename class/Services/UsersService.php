@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Entities\User;
-use App\Entities\CarModel;
+use CarServices;
 use DateTime;
 
 class UsersService
@@ -39,6 +39,7 @@ class UsersService
         $tempId = null;
 
         $dataBaseService = new DataBaseService();
+        $carService = new CarService();
         $usersDTO = $dataBaseService->getUsers();
         if (!empty($usersDTO)) {
             foreach ($usersDTO as $userDTO) {
@@ -64,13 +65,8 @@ class UsersService
                 }
 
                 if ($userDTO['idcar'] != null) {
-                    $car = new CarModel();
-                    $car->setIdCar($userDTO['idcar']);
-                    $car->setMarque($userDTO['marque']);
-                    $car->setModele($userDTO['modele']);
-                    $car->setCouleur($userDTO['couleur']);
-                    $car->setTypeMoteur($userDTO['typemoteur']);
-                    $car->setAuthor($userDTO['author']);
+                    $car = $carService->getCar($userDTO['idcar'], $userDTO['marque'], $userDTO['modele'], $userDTO['couleur'],
+                    $userDTO['typemoteur'], $userDTO['author']);
                     $cars[] = $car;
                 }
                 $loop += 1;

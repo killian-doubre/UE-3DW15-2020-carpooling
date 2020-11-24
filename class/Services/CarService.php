@@ -24,6 +24,21 @@ class CarService
     }
 
     /**
+     * Return a car.
+     */
+    public function getCar(string $idcar, string $marque, string $modele, string $couleur, string $typeMoteur, string $author): CarModel
+    {
+        $car = new CarModel();
+        $car->setIdCar($idcar);
+        $car->setMarque($marque);
+        $car->setModele($modele);
+        $car->setCouleur($couleur);
+        $car->setTypeMoteur($typeMoteur);
+        $car->setAuthor($author);
+        return $car;
+    }
+
+    /**
      * Delete a car.
      */
     public function deleteCar(string $id): bool

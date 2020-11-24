@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Entities\Ad;
-use App\Entities\AdComment;
+use App\Services\AdCommentsService;
 use DateTime;
 
 class AdsService
@@ -40,6 +40,7 @@ class AdsService
         $tempId = null;
 
         $dataBaseService = new DataBaseService();
+        $adCommentsService = new AdCommentsService();
         $adsDTO = $dataBaseService->getAds();
         if (!empty($adsDTO)) {
             foreach ($adsDTO as $adDTO) {
@@ -69,15 +70,8 @@ class AdsService
                 }
 
                 if ($adDTO['idcom'] != null) {
-                    $adComment = new AdComment();
-                    $adComment->setId($adDTO['idcom']);
-                    $adComment->setIdAnnonce($adDTO['idad']);
-                    $adComment->setAuthor($adDTO['author']);
-                    $adComment->setComment($adDTO['comment']);
-                    $date = new DateTime($adDTO['date']);
-                    if ($date !== false) {
-                        $adComment->setDate($date);
-                    }
+                    $adComment = $adCommentsService->getAdComment($adDTO['idcom'], $adDTO['idad'], $adDTO['author'], 
+                    $adDTO['comment'], $adDTO['date']);
                     $comments[] = $adComment;
                 }
                 $loop += 1;

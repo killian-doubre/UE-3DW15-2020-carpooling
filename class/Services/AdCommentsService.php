@@ -26,6 +26,23 @@ class AdCommentsService
     }
 
     /**
+     * Get an Ad Comment.
+     */
+    public function getAdComment(string $idCom, string $idAd, string $author, string $comment, string $date): AdComment
+    {
+        $adComment = new AdComment();
+        $adComment->setId($idCom);
+        $adComment->setIdAnnonce($idAd);
+        $adComment->setAuthor($author);
+        $adComment->setComment($comment);
+        $date = new DateTime($date);
+        if ($date !== false) {
+            $adComment->setDate($date);
+        }
+        return $adComment;
+    }
+
+    /**
      * Delete an Ad Comment.
      */
     public function deleteAdComment(string $id): bool
